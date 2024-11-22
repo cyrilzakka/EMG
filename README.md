@@ -18,13 +18,11 @@ EMG is a lightweight (and sudo-less) menubar-based monitoring tool "top" designe
 5. Open the app, right click on the menubar icon, and click on "Start monitoring".
 
 ### Feedback
-We value your input! If you have any suggestions, encounter issues, or want to share your experience, please feel free to reach out:
-
-2. **GitHub Issues**: For bug reports or feature requests, please create an issue in this repository. 
-    - Provide a clear title and description of your feedback
-   - Include steps to reproduce the issue (for bugs) or detailed explanation (for feature requests)
-   - Include the app version number and macOS version
-   - Submit the issue
+For bug reports or feature requests, please create an issue in this repository. 
+- Provide a clear title and description of your feedback
+- Include steps to reproduce the issue (for bugs) or detailed explanation (for feature requests)
+- Include the app version number and macOS version
+- Submit the issue
 
 Your feedback helps improve EMG for everyone. Thank you for your support!
 
