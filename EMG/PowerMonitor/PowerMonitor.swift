@@ -25,6 +25,10 @@ class PowerMonitor {
         guard !isRunning else { return }
         isRunning = true
         
+        iorep = iorep_data()
+        sd = static_data()
+        cmd = cmd_data()
+        
         monitorTask = Task { [weak self] in
             guard let self = self else { return }
             cmd.interval = 175
@@ -163,12 +167,18 @@ class PowerMonitor {
         iorep.pwrsub = nil
         iorep.clpcsub = nil
         iorep.bwsub = nil
-        
-        // Release subscription channels
+
         iorep.cpusubchn = nil
         iorep.pwrsubchn = nil
         iorep.clpcsubchn = nil
         iorep.bwsubchn = nil
+
+        iorep.cpuchn_cpu = nil
+        iorep.cpuchn_gpu = nil
+        iorep.pwrchn_eng = nil
+        iorep.pwrchn_pmp = nil
+        iorep.clpcchn    = nil
+        iorep.bwchn      = nil
     }
     
 }
