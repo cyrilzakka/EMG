@@ -28,5 +28,9 @@ We value your input! If you have any suggestions, encounter issues, or want to s
 
 Your feedback helps improve EMG for everyone. Thank you for your support!
 
+### Preview
+<img width="469" alt="preview" src="https://github.com/user-attachments/assets/c22e27ea-dc75-4f61-af89-ca4d0aa43aea">
+
+
 ### Acknowledgements
 - [NeoAsitop](https://github.com/op06072/NeoAsitop) for the initial terminal based implementation.
