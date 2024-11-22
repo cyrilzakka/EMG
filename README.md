@@ -7,7 +7,6 @@
 [![swift-version](https://img.shields.io/badge/Swift-6.0-brightgreen.svg)](https://github.com/apple/swift)
 [![platform](https://img.shields.io/badge/Platform-macOS_14.0-blue.svg)](https://github.com/apple/swift)
 
-
 ### About
 EMG is a lightweight (and sudo-less) menubar-based monitoring tool "top" designed to display real-time metrics for Apple Silicon chips.
 
@@ -28,3 +27,6 @@ We value your input! If you have any suggestions, encounter issues, or want to s
    - Submit the issue
 
 Your feedback helps improve EMG for everyone. Thank you for your support!
+
+### Acknowledgements
+- [NeoAsitop](https://github.com/op06072/NeoAsitop) for the initial terminal based implementation.
