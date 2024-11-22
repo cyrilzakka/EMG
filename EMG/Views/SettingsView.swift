@@ -33,7 +33,11 @@ struct SettingsView: View {
 }
 
 struct GeneralSettingsView: View {
+    
     @AppStorage("hideDock") private var hideDock: Bool = false
+    @AppStorage("samplingInterval") private var samplingInterval: Double = 1.0
+    
+    private let intervals = [0.5, 1.0, 2.0, 5.0]
     
     var body: some View {
         Form {
@@ -41,8 +45,21 @@ struct GeneralSettingsView: View {
                 Toggle(isOn: $hideDock) {
                     Text("Hide dock icon")
                 }
+                Picker("Sampling Interval", selection: $samplingInterval) {
+                    ForEach(intervals, id: \.self) { interval in
+                        Text("\(interval, specifier: "%.1f") seconds")
+                            .tag(interval)
+                    }
+                }
             }, header: {
-                Text("Appearance")
+                Text("General")
+            }, footer: {
+                Text("Increasing the sampling interval will improve performance, but will also reduce the accuracy of the measuremenets.")
+                    .font(.footnote)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(nil)
+                    .foregroundColor(.secondary)
             })
         }
         .formStyle(.grouped)

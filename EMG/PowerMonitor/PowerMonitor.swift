@@ -14,12 +14,23 @@ class PowerMonitor {
     private var cmd = cmd_data()
     private let sens = SensorsReader()
     
-    let interval: Double = 1
     let avg: Double = 30
     var isRunning = false
     private var monitorTask: Task<Void, Never>?
     
     var globalInfo: dispInfo?
+    
+    var samplingInterval: Double {
+        get {
+            access(keyPath: \.samplingInterval)
+            return UserDefaults.standard.double(forKey: "samplingInterval")
+        }
+        set {
+            withMutation(keyPath: \.samplingInterval) {
+                UserDefaults.standard.setValue(newValue, forKey: "samplingInterval")
+            }
+        }
+    }
     
     func start() {
         guard !isRunning else { return }
@@ -34,7 +45,7 @@ class PowerMonitor {
             cmd.interval = 175
             cmd.samples = 1
             
-            while cmd.interval/1000 >= interval {
+            while cmd.interval/1000 >= samplingInterval {
                 cmd.interval /= 2
             }
             
@@ -148,7 +159,7 @@ class PowerMonitor {
                 gpu_pwr = monInfo.gpu_pwr.val
                 globalInfo = monInfo
                 
-                try? await Task.sleep(for: .milliseconds(Int64((interval-(cmd.interval*1e-3)) * 1000)))
+                try? await Task.sleep(for: .milliseconds(Int64((samplingInterval-(cmd.interval*1e-3)) * 1000)))
             }
             cleanupSubscriptions()
         }
