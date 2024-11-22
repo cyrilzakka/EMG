@@ -18,7 +18,9 @@ struct MenuView: View {
             HStack(alignment: .center, spacing: 0) {
                 // GPU
                 HStack(alignment: .center, spacing: 5) {
-                    VerticalGauge(value: Int(powerMonitor.globalInfo?.pcpu_usg.val ?? 0), minRange: 0, maxRange: 100).drawingGroup()
+                    VerticalGauge(value: Int(powerMonitor.globalInfo?.gpu_usg.val ?? 0), minRange: 0, maxRange: 100)
+                        .drawingGroup()
+                    
                     VStack(alignment: .leading) {
                         Text("GPU: \(Int(powerMonitor.globalInfo?.gpu_usg.val ?? 0), format: .number)%")
                         Text("\(Int(powerMonitor.globalInfo?.gpu_bw.val ?? 0), format: .number) GB/s")
@@ -50,7 +52,7 @@ struct MenuView: View {
                     .scaleEffect(0.8)
                     
                 }
-                .frame(width: 80)
+                .frame(width: 85)
                 
                 // ANE
                 VStack(alignment: .leading) {

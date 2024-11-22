@@ -16,7 +16,7 @@ struct VerticalGauge: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
-            ZStack {
+            ZStack(alignment: .bottom) {
                 Capsule()
                     .fill(.tertiary)
                 Capsule()
