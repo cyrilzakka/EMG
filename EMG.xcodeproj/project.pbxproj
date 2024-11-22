@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F1C7518A2CEE6EA1004A9151 /* libIOReport.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C751892CEE6EA1004A9151 /* libIOReport.tbd */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		F1C751702CEE5F6E004A9151 /* EMG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EMG.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1C751892CEE6EA1004A9151 /* libIOReport.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libIOReport.tbd; path = usr/lib/libIOReport.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1C7518A2CEE6EA1004A9151 /* libIOReport.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +39,7 @@
 			isa = PBXGroup;
 			children = (
 				F1C751722CEE5F6E004A9151 /* EMG */,
+				F1C751882CEE6EA1004A9151 /* Frameworks */,
 				F1C751712CEE5F6E004A9151 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +50,14 @@
 				F1C751702CEE5F6E004A9151 /* EMG.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F1C751882CEE6EA1004A9151 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1C751892CEE6EA1004A9151 /* libIOReport.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +281,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cyrilzakka.EMG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = EMG/ioreport_bridge.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -293,6 +309,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cyrilzakka.EMG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = EMG/ioreport_bridge.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

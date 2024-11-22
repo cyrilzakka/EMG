@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+//    @Environment(PowerMonitor.self) private var powerMonitor
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,6 +19,9 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+//        .task {
+//            powerMonitor.start()
+//        }
     }
 }
 
