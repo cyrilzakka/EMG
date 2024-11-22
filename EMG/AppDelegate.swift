@@ -13,16 +13,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @AppStorage("hideDock") private var hideDock: Bool = false
     @State private var powerMonitor = PowerMonitor()
-    let statusItem = NSStatusBar.system.statusItem(withLength: 275)
+    private var statusItem: NSStatusItem?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
+        self.statusItem = NSStatusBar.system.statusItem(withLength: 275)
         NSApp.setActivationPolicy(hideDock ? .accessory : .regular)
         let menuBarView = MenuView()
             .environment(powerMonitor)
         let hostingView = NSHostingView(rootView: menuBarView)
         hostingView.frame.size = NSSize(width: 275, height: 22)
         
-        if let button = statusItem.button {
+        if let button = statusItem?.button {
             button.addSubview(hostingView)
             button.target = self
             button.action = #selector(statusItemClicked(_:))
@@ -48,9 +49,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         
-        statusItem.menu = menu
-        statusItem.button?.performClick(nil)
-        statusItem.menu = nil
+        statusItem?.menu = menu
+        statusItem?.button?.performClick(nil)
+        statusItem?.menu = nil
     }
     
     // Sometimes we do things we aren't proud of.
