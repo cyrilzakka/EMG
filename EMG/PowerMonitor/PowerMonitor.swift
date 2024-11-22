@@ -154,6 +154,7 @@ class PowerMonitor {
         isRunning = false
         monitorTask?.cancel()
         monitorTask = nil
+        globalInfo = nil
     }
     
     private func cleanupSubscriptions() {

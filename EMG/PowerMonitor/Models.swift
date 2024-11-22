@@ -8,6 +8,12 @@
 struct tileInfo {
     var title: String
     var val: Float
+    
+    var watts: Double {
+        Double(title.split(separator: "@")[safe: 1]?
+            .trimmingCharacters(in: .whitespaces)
+            .replacingOccurrences(of: " W", with: "") ?? "0.0") ?? 0.0
+    }
 }
 
 struct chartInfo {

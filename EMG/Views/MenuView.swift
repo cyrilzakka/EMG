@@ -62,7 +62,7 @@ struct MenuView: View {
                     }
                     .labelStyle(NoSpacingLabel(spacing: 3))
                     
-                    Text("\(Int(powerMonitor.globalInfo?.ane_usg.val ?? 0), format: .number)%")
+                    Text("\(Int(powerMonitor.globalInfo?.ane_usg.watts ?? 0), format: .number)W")
                 }
                 .font(.footnote)
                 .fontWeight(.semibold)
@@ -107,11 +107,8 @@ struct MenuView: View {
                 
                 
             }
-        }.frame(maxWidth: .infinity, alignment: .leading)
-        
-        .onAppear {
-            powerMonitor.start()
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     func parseMemoryBandwidth(_ text: String) -> (total: Double, read: Double, write: Double) {

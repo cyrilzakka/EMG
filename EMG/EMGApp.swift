@@ -14,7 +14,9 @@ struct EMGApp: App {
     
     var body: some Scene {
         Settings {
-            EmptyView()
+            SettingsView()
         }
+        .windowResizability(.contentSize)
+        .restorationBehavior(.disabled)
     }
 }
