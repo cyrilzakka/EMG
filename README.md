@@ -10,6 +10,9 @@
 ### About
 EMG is a lightweight (and sudo-less) menubar-based monitoring tool "top" designed to display real-time metrics for Apple Silicon chips.
 
+### Preview
+<img width="620" alt="Screenshot 2024-11-22 at 10 48 39 AM" src="https://github.com/user-attachments/assets/2cfe44b1-96cd-4706-9229-9aa5aff9a128">
+
 ### Installation
 1. Go to the [Releases](https://github.com/cyrilzakka/EMG/releases) section of this repository.
 2. Download the latest `EMG.zip` file.
@@ -27,10 +30,6 @@ We value your input! If you have any suggestions, encounter issues, or want to s
    - Submit the issue
 
 Your feedback helps improve EMG for everyone. Thank you for your support!
-
-### Preview
-<img width="469" alt="preview" src="https://github.com/user-attachments/assets/c22e27ea-dc75-4f61-af89-ca4d0aa43aea">
-
 
 ### Acknowledgements
 - [NeoAsitop](https://github.com/op06072/NeoAsitop) for the initial terminal based implementation.
