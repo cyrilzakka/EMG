@@ -10,6 +10,7 @@ import SwiftUI
 struct MenuView: View {
     
     @Environment(PowerMonitor.self) private var powerMonitor
+    @AppStorage("startOnLaunch") private var startOnLaunch: Bool = false
     
     var body: some View {
         // cpu_pwr: EMG.chartInfo(title: "CPU: 1.51W", val: [1.1142857, 1.8857144, 1.8000001, 7.5428567]),
@@ -106,11 +107,14 @@ struct MenuView: View {
                 }
                 .scaleEffect(0.8)
                 .frame(width: 70)
-                
-                
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        .onAppear {
+            if !powerMonitor.isRunning && startOnLaunch {
+                powerMonitor.start()
+            }
+        }
     }
     
     func parseMemoryBandwidth(_ text: String) -> (total: Double, read: Double, write: Double) {

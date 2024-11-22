@@ -36,15 +36,24 @@ struct GeneralSettingsView: View {
     
     @AppStorage("hideDock") private var hideDock: Bool = false
     @AppStorage("samplingInterval") private var samplingInterval: Double = 1.0
+    @AppStorage("startOnLaunch") private var startOnLaunch: Bool = false
     
     private let intervals = [0.5, 1.0, 2.0, 5.0]
     
     var body: some View {
         Form {
             Section(content: {
+                Toggle(isOn: $startOnLaunch) {
+                    Text("Start on app launch")
+                }
                 Toggle(isOn: $hideDock) {
                     Text("Hide dock icon")
                 }
+            }, header: {
+                Text("General")
+            })
+            
+            Section(content: {
                 Picker("Sampling Interval", selection: $samplingInterval) {
                     ForEach(intervals, id: \.self) { interval in
                         Text("\(interval, specifier: "%.1f") seconds")
@@ -52,7 +61,7 @@ struct GeneralSettingsView: View {
                     }
                 }
             }, header: {
-                Text("General")
+                Text("Performance")
             }, footer: {
                 Text("Increasing the sampling interval will improve performance, but will also reduce the accuracy of the measuremenets.")
                     .font(.footnote)
